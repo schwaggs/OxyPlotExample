@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OxyPlotExamples.DataViewer">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="NextDay"
+                     Text="Next Day"
+                     Priority="0"
+                     Order="Primary"
+                     Clicked="NextDay_Clicked" />
+
+        <ToolbarItem x:Name="PrevDay"
+                     Text="Previous Day"
+                     Priority="0"
+                     Order="Primary"
+                     Clicked="PrevDay_Clicked" />
+
+        <ToolbarItem x:Name="All"
+                     Text="All"
+                     Priority="0"
+                     Order="Primary"
+                     Clicked="All_Clicked" />
+
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            
+            <Button Text="Day"
+                    x:Name="DayButton"
+                    Clicked="DayButton_Clicked" />
+            <Button Text="Week"
+                    x:Name="Weekbutton"
+                    Clicked="Weekbutton_Clicked" />
+            <Button Text="Month"
+                    x:Name="MonthButton"
+                    Clicked="MonthButton_Clicked" />
+            
+            <Label x:Name="Current_Label" />
+            <ListView x:Name="Items_ListView"
+                      ItemsSource="{Binding CurrentList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Date}" 
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Value}" 
+                                       TextColor="Black"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

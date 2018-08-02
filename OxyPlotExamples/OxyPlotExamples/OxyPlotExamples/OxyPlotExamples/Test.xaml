@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OxyPlotExamples.Test"
+             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="DataViewer"
+                     Order="Primary"
+                     Priority="0"
+                     Text="View Data"
+                     Clicked="DataViewer_Clicked" />
+        
+        <ToolbarItem x:Name="TemperatureUnit_Farenheit"
+                     Order="Secondary"
+                     Priority="0"
+                     Text="°F" 
+                     Clicked="TemperatureUnit_Farenheit_Clicked" />
+
+        <ToolbarItem x:Name="TemperatureUnit_Celcius"
+                     Order="Secondary"
+                     Priority="1"
+                     Text="°C"
+                     Clicked="TemperatureUnit_Celcius_Clicked" />
+
+        <ToolbarItem x:Name="Data_30"
+                     Order="Secondary"
+                     Priority="2"
+                     Text="30 Days"
+                     Clicked="Data_30_Clicked" />
+
+        <ToolbarItem x:Name="Data_60"
+                     Order="Secondary"
+                     Priority="3"
+                     Text="60 Days"
+                     Clicked="Data_60_Clicked" />
+
+        <ToolbarItem x:Name="Data_90"
+                     Order="Secondary"
+                     Priority="4"
+                     Text="90 Days"
+                     Clicked="Data_90_Clicked" />
+
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="7*"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                
+                <ColumnDefinition />
+                
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" Grid.Column="0"
+                       x:Name="DayTab"
+                       OutlineColor="Transparent"
+                       HasShadow="True">
+
+                    <Frame.GestureRecognizers>
+
+                        <TapGestureRecognizer x:Name="Day"
+                                              Tapped="Day_Tapped" />
+
+                    </Frame.GestureRecognizers>
+
+                    <Label Text="Day"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1"
+                       x:Name="MonthTab"
+                       OutlineColor="Transparent"
+                       HasShadow="True">
+
+                    <Frame.GestureRecognizers>
+
+                        <TapGestureRecognizer x:Name="Week"
+                                              Tapped="Week_Tapped" />
+
+                    </Frame.GestureRecognizers>
+
+                    <Label Text="Week"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="2"
+                       x:Name="AllTab"
+                       OutlineColor="Transparent"
+                       HasShadow="True">
+
+                    <Frame.GestureRecognizers>
+
+                        <TapGestureRecognizer x:Name="Month"
+                                              Tapped="Month_Tapped" />
+
+                    </Frame.GestureRecognizers>
+
+                    <Label Text="Month"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+                </Frame>
+            </Grid>
+
+            <oxy:PlotView Grid.Row="1" Grid.Column="0"
+                          x:Name="chart1"
+                          HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="FillAndExpand">
+
+                <oxy:PlotView.GestureRecognizers>
+
+                    <PanGestureRecognizer x:Name="Chart1"
+                                          PanUpdated="Chart1_PanUpdated" />
+
+                </oxy:PlotView.GestureRecognizers>
+
+            </oxy:PlotView>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
